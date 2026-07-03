@@ -99,143 +99,49 @@ Edit CSS variables in `css/style.css`:
 }
 ```
 
-## Deployment
+## Deployment and CI/CD
 
-### Deploy to AWS S3 (Static Website Hosting)
+This project is deployed as a static website and uses GitHub Actions for automated validation and publishing.
 
-#### Step 1: Create S3 Bucket
+### Automated deployment workflow
 
-1. Go to [AWS S3 Console](https://s3.console.aws.amazon.com/)
-2. Click "Create bucket"
-3. Enter bucket name: `energy-dashboard-yourusername`
-4. Choose region (closest to you)
-5. **Uncheck** "Block all public access"
-6. Click "Create bucket"
+Every push to the main branch triggers the workflow in [.github/workflows/deploy.yml](.github/workflows/deploy.yml), which:
 
-#### Step 2: Enable Static Website Hosting
+- validates that the core site files exist
+- runs the deployment job
+- publishes the site to GitHub Pages from the gh-pages branch
 
-1. Select your bucket
-2. Go to "Properties" tab
-3. Scroll to "Static website hosting"
-4. Click "Edit"
-5. Enable static website hosting
-6. Index document: `index.html`
-7. Click "Save changes"
+A companion workflow file, [deploy.yml](deploy.yml), is also included for the same deployment target.
 
-#### Step 3: Set Bucket Permissions
+### GitHub Pages setup
 
-1. Go to "Permissions" tab
-2. Click on "Bucket Policy" section
-3. Add this policy (replace bucket name):
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::energy-dashboard-yourusername/*"
-        }
-    ]
-}
-```
+1. Push the repository to GitHub.
+2. Open your repository settings and go to Pages.
+3. Select the source as Deploy from a branch.
+4. Choose the gh-pages branch and the root folder.
+5. Save the settings.
 
-#### Step 4: Upload Files
+Your site will then be available at your GitHub Pages URL.
 
-Option A: Using AWS Console
-1. Click "Upload"
-2. Drag and drop all files and folders
-3. Click "Upload"
+### Local development
 
-Option B: Using AWS CLI
-```bash
-# Install AWS CLI if not already installed
-# Then configure your credentials
-aws configure
-
-# Upload to S3
-aws s3 sync . s3://energy-dashboard-yourusername/ --exclude ".git*" --exclude "node_modules/*"
-```
-
-Option C: Using Git Actions (Automated Deployment)
-
-Create `.github/workflows/deploy.yml`:
-```yaml
-name: Deploy to S3
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-      
-      - name: Deploy to S3
-        uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete --exclude '.git*' --exclude 'node_modules/*'
-        env:
-          AWS_S3_BUCKET: energy-dashboard-yourusername
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: us-east-1
-```
-
-#### Step 5: Access Your Dashboard
-
-Your dashboard will be available at:
-```
-http://energy-dashboard-yourusername.s3-website-us-east-1.amazonaws.com
-```
-
-Or with a custom domain (optional).
-
-### Deploy Using GitHub Pages (Alternative)
-
-1. Push code to GitHub
-2. Go to repository Settings → Pages
-3. Select main branch as source
-4. Your dashboard will be at `https://yourusername.github.io/energy-dashboard`
-
-## GitHub Repository Setup
-
-### Initial Setup
+Run the dashboard locally with:
 
 ```bash
-# Initialize git (if not already done)
-git init
-
-# Add all files
-git add .
-
-# Create initial commit
-git commit -m "Initial commit: Add energy dashboard"
-
-# Create GitHub repository and add remote
-git remote add origin https://github.com/yourusername/energy-dashboard.git
-
-# Push to GitHub
-git push -u origin main
+python -m http.server 8000
 ```
 
-### Keep Your Repo Updated
+Then open http://localhost:8000 in your browser.
+
+### Docker option
+
+You can also run the app using Docker Compose:
 
 ```bash
-# Make changes and commit
-git add .
-git commit -m "Your commit message"
-
-# Push to GitHub
-git push origin main
+docker compose up --build
 ```
+
+The app will be available at http://localhost:8080.
 
 ## Future Enhancements
 
