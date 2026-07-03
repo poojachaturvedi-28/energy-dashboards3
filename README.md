@@ -188,7 +188,7 @@ For issues, questions, or suggestions, please open an issue on GitHub.
 
 ## Contact
 
-- GitHub: [@yourusername](https://github.com/poojachaturvedi-28)
+- GitHub: [@poojachaturvedi-28](https://github.com/poojachaturvedi-28)
 - Email: pooja.chaturvedi@nirmauni.ac.in
 
 ---
