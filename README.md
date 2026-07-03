@@ -19,6 +19,15 @@ A beginner-friendly web application to monitor and analyze energy consumption wi
 - **Chart.js**: Beautiful data visualizations
 - **No Framework Dependencies**: Pure vanilla JavaScript
 
+## Documentation Highlights
+
+This README now covers the main ways to work with and deploy the project:
+
+- **CI/CD workflow details** for automated validation and publishing
+- **GitHub Pages deployment steps** for hosting the static site
+- **Local preview instructions** for running the app on your machine
+- **Docker usage** for containerized development and deployment
+
 ## Project Structure
 
 ```
@@ -179,8 +188,8 @@ For issues, questions, or suggestions, please open an issue on GitHub.
 
 ## Contact
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@yourusername](https://github.com/poojachaturvedi-28)
+- Email: pooja.chaturvedi@nirmauni.ac.in
 
 ---
 
