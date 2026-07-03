@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  energy-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    container_name: energy-dashboard
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./css:/usr/share/nginx/html/css:ro
+      - ./js:/usr/share/nginx/html/js:ro
+      - ./data:/usr/share/nginx/html/data:ro
+    restart: unless-stopped
+    networks:
+      - energy-network
+
+  # Optional: Lightweight Node.js development server
+  dev-server:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    command: npx http-server -p 8000
+    container_name: energy-dashboard-dev
+    networks:
+      - energy-network
+    profiles:
+      - dev
+
+networks:
+  energy-network:
+    driver: bridge

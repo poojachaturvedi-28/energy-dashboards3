@@ -32,3 +32,8 @@ Thumbs.db
 # Misc
 *.bak
 temp/
+
+# Docker
+.docker/
+docker-compose.override.yml
+.dockerignore
