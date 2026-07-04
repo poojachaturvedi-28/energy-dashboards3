@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Consumption Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>⚡ Energy Dashboard</h1>
+            <p class="subtitle">Monitor Your Energy Consumption</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <h3>Today's Usage</h3>
+                    <p class="stat-value" id="todayUsage">--</p>
+                    <p class="stat-unit">kWh</p>
+                </div>
+                <div class="stat-card">
+                    <h3>This Month</h3>
+                    <p class="stat-value" id="monthUsage">--</p>
+                    <p class="stat-unit">kWh</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Daily</h3>
+                    <p class="stat-value" id="avgUsage">--</p>
+                    <p class="stat-unit">kWh</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Estimated Cost</h3>
+                    <p class="stat-value" id="costUsage">--</p>
+                    <p class="stat-unit">USD</p>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <h2>Daily Energy Consumption (Last 7 Days)</h2>
+                    <canvas id="dailyChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h2>Monthly Breakdown</h2>
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Table Section -->
+            <section class="table-section">
+                <h2>Detailed Daily Log</h2>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Usage (kWh)</th>
+                                <th>Cost (USD)</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Tips Section -->
+            <section class="tips-section">
+                <h2>💡 Energy Saving Tips</h2>
+                <ul class="tips-list">
+                    <li>Turn off lights when not in use</li>
+                    <li>Use LED bulbs for better energy efficiency</li>
+                    <li>Keep appliances unplugged when not needed</li>
+                    <li>Maintain optimal temperature settings (68-72°F)</li>
+                    <li>Use power strips to prevent phantom power drain</li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Energy Dashboard. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

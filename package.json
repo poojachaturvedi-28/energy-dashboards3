@@ -1,0 +1,29 @@
+{
+  "name": "energy-dashboard",
+  "version": "1.0.0",
+  "description": "A beginner-friendly web application to monitor and analyze energy consumption with beautiful visualizations",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "http-server",
+    "deploy": "aws s3 sync . s3://energy-dashboard-yourusername/ --exclude '.git*' --exclude 'node_modules/*' --exclude '.env*'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "energy",
+    "consumption",
+    "dashboard",
+    "monitoring",
+    "analytics"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/energy-dashboard.git"
+  },
+  "homepage": "https://github.com/yourusername/energy-dashboard#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

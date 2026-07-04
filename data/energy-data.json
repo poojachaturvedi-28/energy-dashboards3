@@ -1,0 +1,80 @@
+{
+  "dailyData": [
+    {
+      "date": "2026-06-27",
+      "usage": 15.2,
+      "cost": 1.82,
+      "timestamp": "2026-06-27T12:00:00Z"
+    },
+    {
+      "date": "2026-06-28",
+      "usage": 18.5,
+      "cost": 2.22,
+      "timestamp": "2026-06-28T12:00:00Z"
+    },
+    {
+      "date": "2026-06-29",
+      "usage": 16.8,
+      "cost": 2.02,
+      "timestamp": "2026-06-29T12:00:00Z"
+    },
+    {
+      "date": "2026-06-30",
+      "usage": 20.1,
+      "cost": 2.41,
+      "timestamp": "2026-06-30T12:00:00Z"
+    },
+    {
+      "date": "2026-07-01",
+      "usage": 19.3,
+      "cost": 2.32,
+      "timestamp": "2026-07-01T12:00:00Z"
+    },
+    {
+      "date": "2026-07-02",
+      "usage": 21.5,
+      "cost": 2.58,
+      "timestamp": "2026-07-02T12:00:00Z"
+    },
+    {
+      "date": "2026-07-03",
+      "usage": 22.8,
+      "cost": 2.74,
+      "timestamp": "2026-07-03T12:00:00Z"
+    }
+  ],
+  "monthlyData": [
+    {
+      "month": "January",
+      "usage": 450,
+      "cost": 54.0
+    },
+    {
+      "month": "February",
+      "usage": 420,
+      "cost": 50.4
+    },
+    {
+      "month": "March",
+      "usage": 380,
+      "cost": 45.6
+    },
+    {
+      "month": "April",
+      "usage": 350,
+      "cost": 42.0
+    },
+    {
+      "month": "May",
+      "usage": 320,
+      "cost": 38.4
+    },
+    {
+      "month": "June",
+      "usage": 385,
+      "cost": 46.2
+    }
+  ],
+  "costPerKwh": 0.12,
+  "lastUpdated": "2026-07-03T12:00:00Z"
+}
